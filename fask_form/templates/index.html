@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Osób</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Lista Osób</h1>
+    <ul>
+        {% for person in list_values %}
+            <li>{{ person.first_name }} {{ person.last_name }} ({{ person.gender }})
+                <form method="post" action="{{ url_for('deletef', index=loop.index0) }}">
+                    <button type="submit">Usuń</button>
+                </form>
+                <a href="{{ url_for('editform', index=loop.index0) }}">Edytuj</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <h2>Dodaj nową osobę</h2>
+    <form method="post" action="{{ url_for('add_user') }}">
+        <label for="imie">Imię:</label>
+        <input type="text" name="imie" required>
+        <label for="nazwisko">Nazwisko:</label>
+        <input type="text" name="nazwisko" required>
+        <label for="wiek">Wiek:</label>
+        <input type="text" name="wiek" required>
+        <label>Płeć:</label>
+        <input type="radio" name="plec" value="mężczyzna" checked> Mężczyzna
+        <input type="radio" name="plec" value="kobieta"> Kobieta
+        <button type="submit">Dodaj</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edytuj osobę</title>
+</head>
+<body>
+    <h2>Edytuj osobę</h2>
+    <form action="/updatedb/{{ index }}" method="post">
+        <label for="imie">Imię:</label>
+        <input type="text" name="imie" value="{{ person.first_name }}" required><br>
+
+        <label for="nazwisko">Nazwisko:</label>
+        <input type="text" name="nazwisko" value="{{ person.last_name }}" required><br>
+
+        <label for="wiek">Wiek:</label>
+        <input type="text" name="wiek" value="{{ person.age }}" required><br>
+
+        <label for="plec">Płeć:</label>
+        <input type="text" name="plec" value="{{ person.gender }}" required><br>
+
+        <button type="submit">Zapisz zmiany</button>
+    </form>
+
+    <br>
+    <a href="/">Powrót do listy osób</a>
+</body>
+</html>

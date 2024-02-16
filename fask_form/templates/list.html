@@ -1,0 +1,9 @@
+{% extends "temp.html" %}
+
+{% block name %} Lista dodanych {% endblock %}
+
+{% block content %}
+	<ul>
+		{{ list_values|safe }}
+	</ul>
+{% endblock %}

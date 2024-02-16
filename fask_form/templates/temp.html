@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{% block name %} {% endblock %} </title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/styl.css') }}" />
+		<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+	</head>
+	<body>
+		<div>
+			<header>
+					<h1>Nazwa/logo</h1>
+			</header>
+			<nav>
+				<a href="{{ url_for('home') }}">Formularz dodawania</a>
+				<a href="{{ url_for('list') }}">Lista dodanych</a>
+			</nav>
+			<main>
+				{% block content %} {% endblock %}
+			</main>
+			
+			<footer>
+				<div>
+					<p>Sklep - wszelkie prawa zastrzeżone</p>
+				</div>
+			</footer>
+		</div>
+		<script>
+			startup()
+		</script>
+	</body>
+</html>
